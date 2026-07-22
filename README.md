@@ -1,4 +1,4 @@
-# NCoder
+# NCoder-CLI
 
 **v1.8.0** · [Changelog](CHANGELOG.md)
 
