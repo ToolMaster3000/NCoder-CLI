@@ -126,7 +126,7 @@ install_pkgs() {
   log "Checking Termux packages..."
   pkg update -y >/dev/null 2>&1 || warn "pkg update had issues, continuing"
 
-  local pkgs=(git cmake clang make python build-essential libopenblas openmp)
+  local pkgs=(git cmake clang make python build-essential libopenblas)
   local missing=()
   for p in "${pkgs[@]}"; do
     dpkg -s "$p" >/dev/null 2>&1 || missing+=("$p")
