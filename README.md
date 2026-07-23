@@ -56,6 +56,7 @@ execution, keyword notes search, and Termux:API integration), built for
 
 ```bash
 pkg install git                          # if not already present
+pkg install libandroid-spawn
 git clone <this-repo> ~/ncoder-cli-src   # or copy setup.sh + nanbeige_cli.py over manually
 cd ~/ncoder-cli-src
 bash setup.sh
