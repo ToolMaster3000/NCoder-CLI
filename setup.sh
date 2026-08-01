@@ -38,10 +38,11 @@ VENV_DIR="$BASE_DIR/venv"
 LOG_DIR="$BASE_DIR/logs"
 BIN_SERVER="$LLAMACPP_DIR/build/bin/llama-server"
 
-MODEL_REPO="heretic-org/Nanbeige4.1-3B-heretic"
 # NOTE: fill in the exact GGUF filename you want after checking the repo's
 # "Files" tab — quantization filenames vary by uploader convention.
-MODEL_FILE="${MODEL_FILE:-Nanbeige4.1-3B-heretic-Q4_K_M.gguf}"
+MODEL_REPO="${MODEL_REPO:-mradermacher/Nanbeige4.1-3B-heretic-GGUF}"
+MODEL_FILE="${MODEL_FILE:-Nanbeige4.1-3B-heretic.Q4_K_M.gguf}"
+
 MODEL_URL="${MODEL_URL:-https://huggingface.co/${MODEL_REPO}/resolve/main/${MODEL_FILE}}"
 MODEL_PATH="$MODELS_DIR/$MODEL_FILE"
 
