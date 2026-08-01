@@ -49,7 +49,6 @@ MODEL_PATH="$MODELS_DIR/$MODEL_FILE"
 SERVER_HOST="127.0.0.1"
 SERVER_PORT="8080"
 SERVER_LOG="$LOG_DIR/llama-server.log"
-PROMPT_CACHE="$BASE_DIR/prompt.cache"
 
 FORCE_REBUILD=0
 SETUP_ONLY=0
@@ -449,7 +448,6 @@ start_server() {
     --cache-type-k q8_0 --cache-type-v q8_0 \
     --mlock \
     --no-mmap \
-    --prompt-cache "$PROMPT_CACHE" \
     --host "$SERVER_HOST" --port "$SERVER_PORT" \
     > "$SERVER_LOG" 2>&1 &
 
