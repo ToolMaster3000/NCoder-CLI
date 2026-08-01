@@ -715,13 +715,17 @@ def http_request(method, url, headers=None, body=None, timeout=15):
     only being able to search. Guarded with a scheme check, a timeout, and
     response-size truncation so a runaway request can't hang the session
     or blow the model's small context window."""
-    method = (method or "GET").upper()
-    if method not in ("GET", "POST", "PUT", "PATCH", "DELETE"):
-        return f"[http_request error: unsupported method '{method}']"
-    if not (url or "").lower().startswith(("http://", "https://")):
-        return "[http_request error: url must start with http:// or https://]"
+        parsed_headers = {}
+    if headers:
+        if isinstance(headers, dict):
+            parsed_headers = headers
+        else:
+            try:
+                parsed_headers = json.loads(headers) or {}
+            except (json.JSONDecodeError, TypeError):
+                parsed_headers = {}
 
-    req_kwargs = {"timeout": timeout, "headers": dict(headers or {})}
+    req_kwargs = {"timeout": timeout, "headers": parsed_headers}
     req_kwargs["headers"].setdefault("User-Agent", "Mozilla/5.0 (Linux; Android) ncoder-cli")
 
     if body:
